@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Congratulations!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #030712;
+      font-family: 'Rajdhani', sans-serif;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .background-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 50% 30%, rgba(16, 185, 129, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 50% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 70%),
+        linear-gradient(180deg, #070d1e 0%, #030712 100%);
+      z-index: 1;
+    }
+
+    .card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 460px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: 20px;
+      padding: 36px 24px;
+      text-align: center;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(16, 185, 129, 0.25);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .icon {
+      font-size: 54px;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(22px, 6vw, 28px);
+      font-weight: 900;
+      color: #10b981;
+      text-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+      margin-bottom: 14px;
+      letter-spacing: 1.5px;
+    }
+
+    .instruction-box {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px dashed rgba(56, 189, 248, 0.4);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 18px 0 24px;
+    }
+
+    .instruction-box p {
+      font-size: 17px;
+      color: #cbd5e1;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    .highlight {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+    /* Telegram Button */
+    .telegram-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #229ed9 0%, #0088cc 100%);
+      color: #ffffff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(13px, 3.8vw, 15px);
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      text-transform: uppercase;
+      border-radius: 12px;
+      box-shadow: 
+        0 4px 20px rgba(0, 136, 204, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .telegram-btn:hover, .telegram-btn:active {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 136, 204, 0.6);
+      background: linear-gradient(135deg, #37b3ed 0%, #0088cc 100%);
+    }
+
+    .telegram-icon {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-glow"></div>
+
+  <div class="card">
+    <div class="icon">🎉</div>
+    <h1>CONGRATULATIONS!</h1>
+    
+    <div class="instruction-box">
+      <p>Please <span class="highlight">take a screenshot of this page</span> and send it to us on Telegram to verify and claim your Tesla Model 3 reward!</p>
+    </div>
+
+    <!-- Telegram Action Link -->
+    <!-- Replace 'YOUR_TELEGRAM_USERNAME' with your actual username or link -->
+    <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="telegram-btn">
+      <svg class="telegram-icon" viewBox="0 0 24 24">
+        <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.54.81-1.08.5l-3.02-2.23-1.46 1.4c-.16.16-.3.3-.6.3l.21-3.04 5.54-5.01c.24-.22-.05-.34-.37-.13l-6.85 4.31-2.95-.92c-.64-.2-.65-.64.13-.95l11.53-4.44c.53-.2 1 .12.89.93z"/>
+      </svg>
+      SEND SCREENSHOT VIA TELEGRAM
+    </a>
+  </div>
+
+</body>
+</html>
