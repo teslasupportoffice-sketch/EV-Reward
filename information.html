@@ -229,12 +229,17 @@
 
   <script>
     document.getElementById('rewardForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent standard page jump
+      e.preventDefault();
       
-      const overlay = document.getElementById('loadingOverlay');
-      overlay.classList.add('active'); // Show loading screen
+      // Save input values to browser storage
+      sessionStorage.setItem('tesla_name', document.getElementById('fullname').value);
+      sessionStorage.setItem('tesla_address', document.getElementById('address').value);
+      sessionStorage.setItem('tesla_email', document.getElementById('email').value);
+      sessionStorage.setItem('tesla_phone', document.getElementById('phone').value);
 
-      // Wait for 2.5 seconds, then redirect
+      const overlay = document.getElementById('loadingOverlay');
+      overlay.classList.add('active');
+
       setTimeout(function() {
         window.location.href = 'congratulation.html';
       }, 2500);
