@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Tesla Giveaway - Claim Your Reward</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #030712;
+      font-family: 'Rajdhani', sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .background-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 50% 20%, rgba(147, 51, 234, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 50% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 70%),
+        linear-gradient(180deg, #070d1e 0%, #030712 100%);
+      z-index: 1;
+    }
+
+    .form-container {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 480px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      border-radius: 20px;
+      padding: 30px 24px;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(168, 85, 247, 0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .header-text {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .header-text h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(20px, 5vw, 26px);
+      font-weight: 900;
+      color: #f472b6;
+      text-shadow: 0 0 12px rgba(244, 114, 182, 0.6);
+      margin-bottom: 8px;
+    }
+
+    .header-text p {
+      font-size: 18px;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+    }
+
+    .input-group label {
+      display: block;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      color: #38bdf8;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 10px;
+      color: #ffffff;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .input-group input:focus {
+      border-color: #a855f7;
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+      background: rgba(30, 41, 59, 0.9);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      margin-top: 10px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(16, 185, 129, 0.6);
+    }
+
+    /* Fullscreen Loading Overlay */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(3, 7, 18, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .loading-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(168, 85, 247, 0.2);
+      border-top: 4px solid #f472b6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      color: #38bdf8;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-glow"></div>
+
+  <div class="form-container">
+    <div class="header-text">
+      <h1>WELCOME DEAR</h1>
+      <p>Fill in the details to get your reward</p>
+    </div>
+
+    <form id="rewardForm">
+      <div class="input-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="John Doe" required>
+      </div>
+
+      <div class="input-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" placeholder="123 Main Street, City" required>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="example@mail.com" required>
+      </div>
+
+      <div class="input-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="+1 (555) 000-0000" required>
+      </div>
+
+      <button type="submit" class="submit-btn">CLAIM REWARD</button>
+    </form>
+  </div>
+
+  <!-- Loading Screen Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <div class="loading-text">Processing details...</div>
+  </div>
+
+  <script>
+    document.getElementById('rewardForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent standard page jump
+      
+      const overlay = document.getElementById('loadingOverlay');
+      overlay.classList.add('active'); // Show loading screen
+
+      // Wait for 2.5 seconds, then redirect
+      setTimeout(function() {
+        window.location.href = 'congratulation.html';
+      }, 2500);
+    });
+  </script>
+
+</body>
+</html>
